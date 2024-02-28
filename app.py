@@ -100,28 +100,29 @@ if user_menu=="Overall Analysis":
    
 if user_menu=="Countrty Wise Analysis":
     pass
-    # region=st.sidebar.selectbox("Select A Country",df["region"].dropna().unique())
-    # st.header(f"Medal Won By {region} On All Olymipcs")
+    region=st.sidebar.selectbox("Select A Country",df["region"].dropna().unique())
+    st.header(f"Medal Won By {region} On All Olymipcs")
 
-    # df_year=helper.year_wise_medal(df,region)
+    df_year=helper.year_wise_medal(df,region)
 
-    # fig=px.line(df_year,x="Year",y="Medal")
-    # st.plotly_chart(fig)
+    fig=px.line(df_year,x="Year",y="Medal")
+    st.plotly_chart(fig)
 
-    # pt=helper.country_best_medal(df,region)
+    pt=helper.country_best_medal(df,region)
 
-    # st.header(f"{region} excels in Following Sports")
+    st.header(f"{region} excels in Following Sports")
 
-    # fig,ax=plt.subplots(figsize=(20,20))
-    # ax=sns.heatmap(pt,annot=True,cmap="Blues")
+    fig,ax=plt.subplots(figsize=(20,20))
+    ax=sns.heatmap(pt,annot=True,cmap="Blues")
     
-    # ax.set_xticklabels(ax.get_xticklabels(), fontsize=22)
-    # ax.set_yticklabels(ax.get_yticklabels(), fontsize=22)
-    # st.pyplot(fig)
+    ax.set_xticklabels(ax.get_xticklabels(), fontsize=12)
+    ax.set_yticklabels(ax.get_yticklabels(), fontsize=12)
+    st.pyplot(fig)
 
-    # st.header(f"Best 10 Players of {region}")
-    # player_df=helper.most_successfull_country(df,region)
-    # st.table(df)
+    st.header(f"Best 10 Players of {region}")
+    player_df=helper.most_successfull_country(df,region)
+    
+    st.table(player_df)
 
 if user_menu=="Athlete Wise Analysis":
     st.header("Distribution based on Age for Medals")
